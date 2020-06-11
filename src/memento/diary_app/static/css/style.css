@@ -1,5 +1,52 @@
-h1 {
+.home-title {
+    font-size: 55px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.home-font {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.form-container {
     display: flex;
     flex-direction: column;
-    color: blue;
+    margin: 3em;
+}
+.form-item {
+    margin: 1em;
+}
+.logo.logo {
+    font-size: 30px;
+}
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.home-row {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5em;
+}
+.home-item {
+    margin: .7em;
+    padding: .3em;
+}
+.home-item.btn {
+    font-size: 20px;
+}
+
+.fade-in-1 {
+    animation: FadeIn 3.5s;
+}
+.fade-in-2 {
+    animation: FadeIn 7s;
+}
+
+@keyframes FadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
