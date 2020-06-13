@@ -2,21 +2,15 @@
 
 {% block head_title %} Diary Entries {% endblock %}
 
-{% block nav_2 %}
-<li class="nav-item active">
-    <a class="nav-link" href="diary/">Diary Entries <span class="sr-only">(current)</span></a>
-</li>
-{% endblock %}
-
 {% block content %}
 
     {% for diary in diaries %}
-            <div>{{ diary.title }}</div>
-            <div>{{ diary.publish_date }}</div>
-            <div>{{ diary.image }}</div>
-            <div>{{ diary.content }}</div>
+            <a href="{% url 'diary_item' pk=diary.pk %}"><div>{{ diary.title }}</div></a>
+            <!-- /diary/diary_detail_page/ -->
+            
 
 
     {% endfor %}
+    <a class="btn btn-success" href="new_diary/">Add New Diary</a>
 
 {% endblock %}
