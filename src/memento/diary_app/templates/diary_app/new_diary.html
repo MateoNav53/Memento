@@ -2,21 +2,18 @@
 
 {% block head_title %} New Diary {% endblock %}
 
-{% block nav_3 %}
-<li class="nav-item active">
-    <a class="nav-link" href="/diary/new_diary">New Diary Entry <span class="sr-only">(current)</span></a>
-</li>
-{% endblock %}
-
 {% block content %}
+  
+  <h2 class="text-center new-diary-header">Create New Diary</h2>
+  <form action="/diary/new_diary/" method="POST" class="form-container text-center" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <!-- <input type="text" name="title" class="form-item" size="40" placeholder="Title" required />
+    <textarea type="text" name="content" class="form-item" rows="12" cols="60" placeholder="Content" required ></textarea>
+    <input type="file" name="image" class="form-item col-md-3 col-4" value="image_upload" /> -->
+    <button type="submit" class="form-item btn btn-success col-4 mx-auto">Publish</button>
 
-<form action="/diary/new_diary/" class="form-container" method="POST" enctype="multipart/form-data">
-  {% csrf_token %}
-  <input type="text" name="title" class="form-item" size="40" placeholder="Title" />
-  <textarea type="text" name="content" class="form-item" rows="20" cols="60" placeholder="Content"></textarea>
-  <button type="submit" class="form-item btn btn-success">Publish</button>
-
-</form>
+  </form>
 
 {% endblock %}
         
