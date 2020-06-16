@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Diary
+from .forms import NewDiaryModelForm
 
 # Create your views here.
 def index(request):
@@ -13,15 +14,18 @@ def diary(request):
     return render(request, 'diary_app/diary.html', context)
 
 def new_diary(request):
+    form = NewDiaryModelForm(request.POST or None, request.FILES or None)
     if request.method =="POST":
-        create_new_diary = Diary.objects.create(
-            title=request.POST['title'],
-            image=request.POST['image'],
-            content=request.POST['content']
-        )
-        create_new_diary.save()
-        return redirect('/diary')
-    return render(request, 'diary_app/new_diary.html')
+        if form.is_valid():
+        # create_new_diary = Diary.objects.create(
+        #     title=request.POST['title'],
+        #     image=request.POST['image'],
+        #     content=request.POST['content']
+        # )
+        # create_new_diary.save()
+            form.save()
+            return redirect('/diary')  
+    return render(request, 'diary_app/new_diary.html', {'form': form})
     
     
 
@@ -31,7 +35,8 @@ def detail(request, pk):
     data = {
         'title': diary_detail.title, 
         'date': diary_detail.publish_date,
-        'content': diary_detail.content
+        'content': diary_detail.content,
+        'image': diary_detail.image,
     }
     return render(request, template_name, data)
 
