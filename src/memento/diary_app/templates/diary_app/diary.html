@@ -5,12 +5,24 @@
 {% block content %}
 
     {% for diary in diaries %}
-            <a href="{% url 'diary_item' pk=diary.pk %}"><div>{{ diary.title }}</div></a>
-            <!-- /diary/diary_detail_page/ -->
+        <div class="container diary-list text-left">   
+            <a href="{% url 'diary_item' pk=diary.pk %}">
+                <div>
+                    {{ diary.title }} 
+                </div>
+            </a>
+            <div>
+                {{ diary.publish_date }}
+            </div>
+            <img class="thumbnail text-right" src="{{ diary.image.url }}" alt="{{ title }}" />
+        </div> 
+        
             
 
 
     {% endfor %}
-    <a class="btn btn-success" href="new_diary/">Add New Diary</a>
+    <div class="container new-diary-link-btn">
+        <a class="btn btn-success col-md-3 col-5" href="new_diary/">Add New Diary</a>
+    </div>
 
 {% endblock %}
