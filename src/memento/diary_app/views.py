@@ -17,12 +17,6 @@ def new_diary(request):
     form = NewDiaryModelForm(request.POST or None, request.FILES or None)
     if request.method =="POST":
         if form.is_valid():
-        # create_new_diary = Diary.objects.create(
-        #     title=request.POST['title'],
-        #     image=request.POST['image'],
-        #     content=request.POST['content']
-        # )
-        # create_new_diary.save()
             form.save()
             return redirect('/diary')  
     return render(request, 'diary_app/new_diary.html', {'form': form})
