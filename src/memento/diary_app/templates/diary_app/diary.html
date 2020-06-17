@@ -17,6 +17,9 @@
             {% if diary.image %}
                 <img class="thumbnail ml-auto" src="{{ diary.image.url }}" alt="{{ diary.title }}" />
             {% endif %}
+            <div>
+                <em>{{diary.content|truncatewords:40}}</em>
+            </div>
         </div> 
         
             
