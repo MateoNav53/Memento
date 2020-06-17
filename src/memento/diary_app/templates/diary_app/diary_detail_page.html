@@ -2,11 +2,13 @@
 
 {% block content %}
 <div class="container">
-    <div class="diary-detail-row">
-        <h1 class="diary-detail-item">{{ title }}</h1>
-        <div class="diary-detail-item"><em>{{ date }}</em></div>
-        <img class="diary-detail-item" src="{{ image.url }}" alt="{{ title }}" />
-        <div class="diary-detail-item">{{ content }}</div>
+    <div>
+        <h1 class="diary-detail-item col-8">{{ title }}</h1>
+        <div class="diary-detail-item col-8"><em>{{ date }}</em></div>
+        {% if image %}
+            <img class="diary-detail-item detail-image col-8 offset-md-2" src="{{ image.url }}" alt="{{ title }}" />
+        {% endif %}
+        <div class="diary-detail-item col-12">{{ content }}</div>
     </div>
 </div>
 
