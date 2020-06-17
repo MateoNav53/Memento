@@ -3,9 +3,9 @@
 {% block head_title %} Diary Entries {% endblock %}
 
 {% block content %}
-
+    <h1 class="text-center dl-header">Diary List</h1> 
     {% for diary in diaries %}
-        <div class="container diary-list text-left">   
+        <div class="container diary-list col-md-9">   
             <a href="{% url 'diary_item' pk=diary.pk %}">
                 <div>
                     {{ diary.title }} 
@@ -14,7 +14,9 @@
             <div>
                 {{ diary.publish_date }}
             </div>
-            <img class="thumbnail text-right" src="{{ diary.image.url }}" alt="{{ title }}" />
+            {% if diary.image %}
+                <img class="thumbnail ml-auto" src="{{ diary.image.url }}" alt="{{ diary.title }}" />
+            {% endif %}
         </div> 
         
             
@@ -22,7 +24,7 @@
 
     {% endfor %}
     <div class="container new-diary-link-btn">
-        <a class="btn btn-success col-md-3 col-5" href="new_diary/">Add New Diary</a>
+        <a class="btn btn-success col-md-3 col-5 offset-md-1" href="new_diary/">Add New Diary</a>
     </div>
 
 {% endblock %}
