@@ -3,7 +3,7 @@
 {% block head_title %} Diary Entries {% endblock %}
 
 {% block content %}
-    <h1 class="text-center dl-header">Diary List</h1> 
+    <h1 class="text-center dl-header">Past Diaries</h1> 
     {% for diary in diaries %}
         <div class="container diary-list col-md-9">   
             <a href="{% url 'diary_item' pk=diary.pk %}">
