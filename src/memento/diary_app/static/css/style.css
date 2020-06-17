@@ -10,7 +10,7 @@
     flex-direction: column;
     margin: 1em;
 }
-.form-item {
+.form-item.form-item {
     margin: 1em;
 }
 .logo.logo {
@@ -45,12 +45,19 @@
 .new-diary-header {
     padding-top: 1em;
 }
+.dl-header {
+    margin: 1em;
+}
 .diary-list {
     padding: 1.3em;
-    box-shadow: 5px 5px 5px;
+    margin-bottom: 1em;
+    box-shadow: 3px 3px 3px 2px;
 }
 .diary-detail-item {
     padding: .8em;
+}
+.detail-image {
+    width: 100%;
 }
 .thumbnail {
     height: 100px;
@@ -59,6 +66,9 @@
 .new-diary-link-btn {
     margin-top: 3em;
     margin-bottom: 3em;
+}
+.asteriskField {
+    display: none;
 }
 @keyframes FadeIn {
     from {
